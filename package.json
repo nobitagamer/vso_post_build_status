@@ -1,0 +1,17 @@
+{
+  "name": "vso_post_build_status",
+  "version": "1.0.0",
+  "description": "Update build status for external git services.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "microcule index.js --watch",
+    "logs": "curl -N https://hook.io/nobitagamer/vso_post_build_status/logs",
+    "start": "microcule index.js"
+  },
+  "author": "nobitagamer",
+  "dependencies": {
+    "microcule": "*"
+  },
+  "license": "MIT"
+}
