@@ -94,6 +94,9 @@ module['exports'] = function vso_post_build_status(hook) {
       case '':
         build_status = 'INPROGRESS'
         break
+      case 'Canceled':
+        build_status = 'STOPPED'
+        break
       default:
         build_status = 'FAILED'
         break
