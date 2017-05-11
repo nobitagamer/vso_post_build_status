@@ -87,7 +87,7 @@ module['exports'] = function vso_post_build_status(hook) {
     }
 
     // The state of the status. Can be one of the following: INPROGRESS|SUCCESSFUL|FAILED
-    switch (build_status) {
+    switch (build_status || '') {
       case 'Succeeded':
         build_status = 'SUCCESSFUL'
         break
