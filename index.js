@@ -77,7 +77,7 @@ module['exports'] = function vso_post_build_status(hook) {
       'ref': `${params.branch.replace('refs/heads/', '')}`,
       'name': params.build_name,
       'target_url': params.build_url,
-      'description': build_description
+      'description': params.build_number
     }
   } else if (params.provider === 'bitbucket') {
     // Bitbucket
