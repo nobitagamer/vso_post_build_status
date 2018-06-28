@@ -45,9 +45,14 @@ module['exports'] = function vso_post_build_status(hook) {
   var build_display = `${params.build_name}: ${params.build_number}`
   var build_description = params.description || build_display
 
-  if (params.provider === 'gitlab') {
-    // GitLab
-    url = `https://gitlab.com/api/v4/projects/${params.repository}/statuses/${params.commit}`
+  if (params.provider === 'gitlab' || params.provider === 'gitlabee') {
+    // GitLab    
+    var gitServerUrl = 'https://gitlab.com'
+    if (params.provider === 'gitlabee') {
+      gitServerUrl = hook.req.headers['x-git-server-url']
+    }
+
+    url = `${gitServerUrl}/api/v4/projects/${params.repository}/statuses/${params.commit}`
     headers = {
       'PRIVATE-TOKEN': token
     }
