@@ -66,6 +66,7 @@ module['exports'] = function vso_post_build_status(hook) {
         build_status = 'pending'
         break
       case 'Succeeded':
+      case 'SucceededWithIssues': // Treat CDN errors as success
         build_status = 'success'
         break
       case 'Canceled':
